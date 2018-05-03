@@ -1,0 +1,147 @@
+<div id="plugin_container" class="eqLogic-widget eqLogic allowResize" style="width:#width#;height:#height#;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#; #style#" data-category="" data-eqLogic_id="#id#" data-version="#version#" >
+   <center class="widget-name"><strong><a href="#eqLink#" style="font-size : 1.1em;#hideEqLogicName#">#name_display#</strong></a>
+	<i class='fa fa-refresh pull-right cursor refresh' style="margin-top: 3px;margin-right: 6px;"></i>
+	<i class='fa fa-info-circle pull-right cursor info' style="margin-top: 3px;margin-right: 6px;"></i>
+	<i class='fa fa-calendar pull-right cursor calendar' style="margin-top: 3px;margin-right: 6px;"></i>
+	<div class="row">
+		<center style="padding:15px 10px 0px 10px">
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-12" style="text-align:left;">
+					<div type="button" class="btn pull-right" style="padding-top:4p;cursor: default;">#status#</div>
+					<div type="button" class="btn btn-xs pull-right" style="margin-top:8px;" id="onoff_action"></div>
+					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Etat : </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12" style="text-align:left;">
+					<div type="button" class="btn pull-right" style="padding-top:4p;cursor: default;">#temperature# °C</div>
+					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Température d'ambiance : </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12" style="text-align:left;">
+					<div class="btn-group pull-right" role="group">
+						<div type="button" class="btn fa fa-plus pull-right cursor consigne-plus"></div>
+						<div type="button" class="btn fa fa-minus pull-right cursor consigne-moins"></div>
+						<div type="button" class="btn pull-right" style="padding-top:4p;cursor: default;">#consigne# °C</div>
+					</div>	
+					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Consigne : </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12" style="text-align:left;">
+					<div class="btn-group pull-right" role="group">
+						<div type="button" class="btn fa fa-plus pull-right cursor fan-plus"></div>
+						<div type="button" class="btn fa fa-minus pull-right cursor fan-moins"></div>
+						<div type="button" class="btn pull-right" style="padding-top:4px;cursor: default;">#fan#</div>
+					</div>
+					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Ventilation : </div>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-sm-12" style="text-align:left;">
+					<div class="btn-group pull-right" role="group">
+						<div type="button" class="btn fa fa-plus pull-right cursor power-plus"></div>
+						<div type="button" class="btn fa fa-minus pull-right cursor power-moins"></div>
+						<div type="button" class="btn pull-right" style="padding-top:4px;cursor: default;">#power#</div>
+					</div>
+					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Intensité du feu : </div>
+				</div>	
+			</div>
+		</div>
+		</center>
+	</div>
+	<script>
+		var status 			= '#status#'; 
+		var power 			= #power#;
+		var fan 			= '#fan#';
+		var consigne 		= #consigne#;
+
+		/* on/off */
+		$(function() {
+			if(status == 'OFF' || status == 'OFF TIMER') { 
+				$('#onoff_action').addClass('btn-success').removeClass('btn-danger').text('START'); 
+			} else { 
+				$('#onoff_action').addClass('btn-danger').removeClass('btn-success').text('STOP'); 
+			}
+		});
+
+		$('#onoff_action').on('click', function(){
+			if(status == 'OFF' || status == 'OFF TIMER') {
+				jeedom.cmd.execute({id: #on_id#});
+			} else {
+				jeedom.cmd.execute({id: #off_id#});
+			}
+		});
+		/* consigne */
+		$('.eqLogic[data-eqLogic_id=#id#] .consigne-plus').on('click', function () {
+			consigne++;
+			jeedom.cmd.execute({id: #consigne_id#, value: consigne});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .consigne-moins').on('click', function () {
+			consigne--;
+			jeedom.cmd.execute({id: #consigne_id#, value: consigne});
+		});	
+		/* ventilation */
+		$('.eqLogic[data-eqLogic_id=#id#] .fan-plus').on('click', function () {
+			if(fan == 'AUTO') { 
+				fan = 6; 			
+			}
+			fan++; 
+			jeedom.cmd.execute({id: #fan_id#, value: fan});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .fan-moins').on('click', function () {
+			if(fan == 'AUTO') { 
+				fan = 6; 			
+			} else if(fan == 'OFF') {
+				fan = 7;
+			}
+			fan--;
+			jeedom.cmd.execute({id: #fan_id#, value: fan});
+		});	
+		/* force feu */
+		$('.eqLogic[data-eqLogic_id=#id#] .power-plus').on('click', function () {
+			power++;
+			jeedom.cmd.execute({id: #power_id#, value: power});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .power-moins').on('click', function () {
+			power--;
+			jeedom.cmd.execute({id: #power_id#, value: power});
+		});	
+		/* desactivation des actions + / - */
+		$(function() {
+			// desactivation + fan
+			if(fan == 'off') {
+				$('.fan-plus').addClass('disabled');
+			}
+			// desactivation - fan
+			if(parseInt(fan) == 0) {
+				$('.fan-moins').addClass('disabled');
+			}
+			// desactivation + force feu
+			if(power == 5) {
+				$('.power-plus').addClass('disabled');
+			}
+			// desactivation - force feu
+			if(power == 0) {
+				$('.power-moins').addClass('disabled');
+			}
+		});
+		/* planning */
+		$('.eqLogic[data-eqLogic_id=#id#] .calendar').on('click', function () {
+			$('#md_modal').dialog({title: "Planning horaires"});
+			$('#md_modal').load('index.php?v=d&plugin=Palazzetti&modal=planning&id=#id#').dialog('open');
+		});	
+		/* info */
+		$('.eqLogic[data-eqLogic_id=#id#] .info').on('click', function () {
+			$('#md_modal').dialog({title: "Informations"});
+			$('#md_modal').load('index.php?v=d&plugin=Palazzetti&modal=informations&id=#id#').dialog('open');
+		});	
+		/* refresh */
+		$('.eqLogic[data-eqLogic_id=#id#] .refresh').on('click', function () {
+			jeedom.cmd.execute({id: #refresh_id#});
+		});	
+
+	</script>
+</div>

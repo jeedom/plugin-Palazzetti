@@ -1,0 +1,130 @@
+<div id="plugin_container" class="eqLogic-widget eqLogic allowResize" style="width:#width#;height:#height#;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#; #style#;" data-category="" data-eqLogic_id="#id#" data-version="#version#" >
+   <center class="widget-name">
+   	#name_display#
+	<div style="font-size:0.80em;text-align:center">
+		<center>
+		<div>
+				<div style="text-align: center;"><center>
+					<div style="font-weight:normal;">Etat</div>
+						<a class="ui-btn ui-mini" style="background-color:#c4c4c4;width:40px;cursor: default;">#status#</a>
+					<a class="ui-btn ui-mini ui-btn-raised" style="background-color:#19bc9c;width:40px;" id="onoff_action"></a>
+					</center>
+				</div><br style="clear:both"/>
+				<div style="text-align:center;">
+					<div style="font-weight:normal;">T° d'ambiance : #temperature# °C</div>
+				</div><br />
+					<div style="font-weight:normal;border-bottom:1px solid #ccc;">Consigne</div>
+						<a class="ui-btn ui-mini fa fa-minus cursor consigne-moins pull-left" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini fa fa-plus cursor consigne-plus pull-right" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini" style="cursor: default;width:50px">#consigne# °C</a>
+					<br />
+					<div style="font-weight:normal;border-bottom:1px solid #ccc;">Ventilation</div>
+						<a class="ui-btn ui-mini fa fa-minus cursor fan-moins pull-left" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini fa fa-plus cursor fan-plus pull-right" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini" style="cursor: default;width:50px">#fan#</a>
+		
+					<br />
+					<div style="font-weight:normal;border-bottom:1px solid #ccc;">Intensité</div>
+						<a class="ui-btn ui-mini fa fa-minus cursor power-moins pull-left" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini fa fa-plus cursor power-plus pull-right" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini" style="cursor: default;width:50px">#power#</a>
+					</div>
+
+		</div>
+		</center>
+	</div>
+</div>
+
+	<script>
+		var status 			= '#status#'; 
+		var power 			= #power#;
+		var fan 			= '#fan#';
+		var consigne 		= #consigne#;
+
+		/* on/off */
+		$(function() {
+			if(status == 'OFF' || status == 'OFF TIMER') { 
+				$('#onoff_action').addClass('btn-success').removeClass('btn-danger').text('START'); 
+			} else { 
+				$('#onoff_action').addClass('btn-danger').removeClass('btn-success').text('STOP'); 
+			}
+		});
+
+		$('#onoff_action').on('click', function(){
+			if(status == 'OFF' || status == 'OFF TIMER') {
+				jeedom.cmd.execute({id: #on_id#});
+			} else {
+				jeedom.cmd.execute({id: #off_id#});
+			}
+		});
+		/* consigne */
+		$('.eqLogic[data-eqLogic_id=#id#] .consigne-plus').on('click', function () {
+			consigne++;
+			jeedom.cmd.execute({id: #consigne_id#, value: consigne});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .consigne-moins').on('click', function () {
+			consigne--;
+			jeedom.cmd.execute({id: #consigne_id#, value: consigne});
+		});	
+		/* ventilation */
+		$('.eqLogic[data-eqLogic_id=#id#] .fan-plus').on('click', function () {
+			if(fan == 'auto') { 
+				fan = 6; 			
+			}
+			fan++; 
+			jeedom.cmd.execute({id: #fan_id#, value: fan});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .fan-moins').on('click', function () {
+			if(fan == 'auto') { 
+				fan = 6; 			
+			} else if(fan == 'off') {
+				fan = 7;
+			}
+			fan--;
+			jeedom.cmd.execute({id: #fan_id#, value: fan});
+		});	
+		/* force feu */
+		$('.eqLogic[data-eqLogic_id=#id#] .power-plus').on('click', function () {
+			power++;
+			jeedom.cmd.execute({id: #power_id#, value: power});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .power-moins').on('click', function () {
+			power--;
+			jeedom.cmd.execute({id: #power_id#, value: power});
+		});	
+		/* desactivation des actions + / - */
+		$(function() {
+			// desactivation + fan
+			if(fan == 'off') {
+				$('.fan-plus').addClass('disabled');
+			}
+			// desactivation - fan
+			if(parseInt(fan) == 0) {
+				$('.fan-moins').addClass('disabled');
+			}
+			// desactivation + force feu
+			if(power == 5) {
+				$('.power-plus').addClass('disabled');
+			}
+			// desactivation - force feu
+			if(power == 0) {
+				$('.power-moins').addClass('disabled');
+			}
+		});
+		/* planning */
+		$('.eqLogic[data-eqLogic_id=#id#] .calendar').on('click', function () {
+			$('#md_modal').dialog({title: "Planning horaires"});
+			$('#md_modal').load('index.php?v=d&plugin=Palazzetti&modal=planning&id=#id#').dialog('open');
+		});	
+		/* info */
+		$('.eqLogic[data-eqLogic_id=#id#] .info').on('click', function () {
+			$('#md_modal').dialog({title: "Informations"});
+			$('#md_modal').load('index.php?v=d&plugin=Palazzetti&modal=informations&id=#id#').dialog('open');
+		});	
+		/* refresh */
+		$('.eqLogic[data-eqLogic_id=#id#] .refresh').on('click', function () {
+			jeedom.cmd.execute({id: #refresh_id#});
+		});	
+
+	</script>
+</div>

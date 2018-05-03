@@ -1,0 +1,14 @@
+Le plugin Palazzetti permet de piloter les poêles à pellets de la marque Palazzetti au moyen de la passerelle Connection Box.
+
+Les fonctionnalités proposées par le plugin sont identiques à celles de l'application mobile officielle Palazzetti App.
+
+Un widget simple de pilotage est mis à disposition sur le dashboard, il permet:
+
+* d'allumer / éteindre le poêle
+* de modifier la consigne
+* de motifier la force de la ventilation
+* de modifier l'intensité du foyer
+* de gérer les programmes horaires selon la philosophie du poêle
+* de visualiser toutes les informations du poêle et de la Connection Box
+
+Pour la version mobile, le widget est épuré de l'accès à la configuration des programmes horaires et aux informations du poêle. 

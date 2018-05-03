@@ -1,0 +1,49 @@
+IMPORTANT: La passerelle Connection Box doit être préalablement installée, configurée sur votre réseau local avant la création d'un équipement Palazzetti.
+
+Une fois le plugin installé, pensez à l'activer dans la section de configuration du plugin. Une tâche de récupération de données est prévue toutes les 15 minutes.
+
+image::../images/Palazzetti-4.png[width=800]
+
+Pour ajouter un équipement ouvrez la page du plugin et appuyer sur le bouton "+".
+
+image::../images/Palazzetti-3.png[width=800]
+
+Renseignez :
+
+* le nom de votre équipement
+* l'adresse ip de votre poêle
+
+image::../images/Palazzetti-5.png[width=800]
+
+Sauvegardez votre équipement; les commandes de l'équipement sont créées et les informations du poêle sont récupérées.
+
+image::../images/Palazzetti-6.png[width=800]
+
+La configuration est finie, vous avez accès au widget et à toutes les commandes de lecture / écriture vers le poêle Palazzetti.
+
+==== Actions Widget
+
+.Actions directes
+
+Sur le widget vous pouvez modifier la consigne, l'intensité du feu et la force de ventilation en cliquant sur le "+" ou le "-".
+
+Un bouton permet d'allumer ou d'éteindre le poêle à savoir le bouton "start" et "stop" respectivement.
+
+.La programmation horaire
+
+Cliquez sur le bouton "calendrier" en haut à droite pour ouvrir la fenêtre de configuration des programmes horaires.
+
+Pour activer / désactiver les programmes horaires cliquez sur le bouton en haut à gauche "inactif" / "actif" respectivement.
+
+Configurer les tranches dans la deuxième section puis attribuez les à chaque jour de la semaine.
+
+ TIP: Chaque modification est enregistrée et appliquée directement sur l'automate du poêle.
+
+ image::../images/Palazzetti-2.png[width=800]
+
+.Informations complémentaires
+
+Cliquez sur le bouton "information" en haut à droite pour ouvrir une fenêtre contenant toutes les informations du poêle et de la Connection Box.
+
+image::../images/Palazzetti-1.png[width=800]
+

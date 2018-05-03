@@ -1,0 +1,1 @@
+L'installation du plugin sur Jeedom ne nécessite pas d'étape supplémentaire par rapport à l'installation classique d'un plugin.

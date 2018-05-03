@@ -15,20 +15,19 @@
  * You should have received a copy of the GNU General Public License
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
-
+ 
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
-function template_install() {
-    
+function Palazzetti_install() {
 }
 
-function template_update() {
-    
+function Palazzetti_update() {
+    $cron = cron::byClassAndFunction('Palazzetti', 'pull');
+    if (is_object($cron)) {
+        $cron->remove();
+    }
 }
 
-
-function template_remove() {
-    
+function Palazzetti_remove() {
 }
-
 ?>

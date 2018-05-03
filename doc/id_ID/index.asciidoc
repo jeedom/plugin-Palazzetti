@@ -1,0 +1,26 @@
+:imagesdir: ../images
+:icons:
+
+== Greenmomit
+image:Palazzetti_icon.png[]
+
+{nbsp} +
+
+=== Description
+link:description.asciidoc[]
+
+'''
+=== Installation
+link:installation.asciidoc[]
+
+'''
+=== Configuration
+link:configuration.asciidoc[]
+
+'''
+=== FAQ
+link:faq.asciidoc[]
+
+'''
+=== CHANGELOG
+link:changelog.asciidoc[]
