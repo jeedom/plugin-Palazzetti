@@ -1,0 +1,49 @@
+{
+    "plugins\/Palazzetti\/desktop\/php\/Palazzetti.php": {
+        "Ajouter un équipement": "Ajouter un équipement",
+        "Rechercher": "Rechercher",
+        "Général": "Général",
+        "Nom de l'équipement Palazzetti": "Nom de l'équipement Palazzetti",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Catégorie": "Catégorie",
+        "Activer": "Activer",
+        "Visible": "Visible",
+        "Adresse IP": "Adresse IP",
+        "Id": "Id",
+        "Nom": "Nom",
+        "Afficher\/Historiser": "Afficher\/Historiser",
+        "Action": "Action",
+        "Supprimer": "Supprimer",
+        "Sauvegarder": "Sauvegarder",
+        "Ajouter un Palazzetti": "Ajouter un Palazzetti",
+        "Mes Palazzettis": "Mes Palazzettis"
+    },
+    "plugins\/Palazzetti\/core\/class\/Palazzetti.class.php": {
+        "Nom du poêle": "Nom du poêle",
+        "Configuration réseau": "Configuration réseau",
+        "Informations automate": "Informations automate",
+        "Intensité du feu": "Intensité du feu",
+        "Température de consigne": "Température de consigne",
+        "Ventilation OFF": "Ventilation OFF",
+        "Ventilation niveau 1": "Ventilation niveau 1",
+        "Ventilation niveau 2": "Ventilation niveau 2",
+        "Ventilation niveau 3": "Ventilation niveau 3",
+        "Ventilation niveau 4": "Ventilation niveau 4",
+        "Ventilation niveau 5": "Ventilation niveau 5",
+        "Lecture planning horaire": "Lecture planning horaire",
+        "Désactivation planning horaire": "Désactivation planning horaire",
+        "Activation planning horaire": "Activation planning horaire",
+        "Allumage du poêle": "Allumage du poêle",
+        "Extinction du poêle": "Extinction du poêle"
+    },
+    "plugins\/Palazzetti\/desktop\/js\/Palazzetti.js": {
+        "Afficher": "Afficher",
+        "Historiser": "Historiser",
+        "Tester": "Tester"
+    },
+    "plugins\/Palazzetti\/plugin_info\/info.xml": {
+        "Plugin de Palazzetti": "Plugin de Palazzetti",
+        "Aucune": "Aucune"
+    }
+}
