@@ -1,21 +1,21 @@
 {
     "plugins\/Palazzetti\/desktop\/php\/Palazzetti.php": {
-        "Ajouter un équipement": "Ajouter un équipement",
-        "Rechercher": "Rechercher",
-        "Général": "Général",
+        "Ajouter un équipement": "機器を追加します",
+        "Rechercher": "検索",
+        "Général": "一般的な",
         "Nom de l'équipement Palazzetti": "Nom de l'équipement Palazzetti",
-        "Objet parent": "Objet parent",
-        "Aucun": "Aucun",
-        "Catégorie": "Catégorie",
-        "Activer": "Activer",
-        "Visible": "Visible",
-        "Adresse IP": "Adresse IP",
+        "Objet parent": "親オブジェクト",
+        "Aucun": "いいえ",
+        "Catégorie": "カテゴリ",
+        "Activer": "アクティブ",
+        "Visible": "目に見えます",
+        "Adresse IP": "IPアドレス",
         "Id": "Id",
-        "Nom": "Nom",
+        "Nom": "名前",
         "Afficher\/Historiser": "Afficher\/Historiser",
-        "Action": "Action",
-        "Supprimer": "Supprimer",
-        "Sauvegarder": "Sauvegarder",
+        "Action": "アクション",
+        "Supprimer": "取り除きます",
+        "Sauvegarder": "セーブ",
         "Ajouter un Palazzetti": "Ajouter un Palazzetti",
         "Mes Palazzettis": "Mes Palazzettis"
     },
@@ -38,12 +38,12 @@
         "Extinction du poêle": "Extinction du poêle"
     },
     "plugins\/Palazzetti\/desktop\/js\/Palazzetti.js": {
-        "Afficher": "Afficher",
-        "Historiser": "Historiser",
-        "Tester": "Tester"
+        "Afficher": "ディスプレイ",
+        "Historiser": "historicize",
+        "Tester": "テスト"
     },
     "plugins\/Palazzetti\/plugin_info\/info.xml": {
         "Plugin de Palazzetti": "Plugin de Palazzetti",
-        "Aucune": "Aucune"
+        "Aucune": "いいえ"
     }
 }

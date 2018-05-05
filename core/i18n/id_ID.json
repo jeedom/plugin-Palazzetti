@@ -1,21 +1,21 @@
 {
     "plugins\/Palazzetti\/desktop\/php\/Palazzetti.php": {
-        "Ajouter un équipement": "Ajouter un équipement",
-        "Rechercher": "Rechercher",
-        "Général": "Général",
+        "Ajouter un équipement": "Tambahan peralatan",
+        "Rechercher": "pencarian",
+        "Général": "umum",
         "Nom de l'équipement Palazzetti": "Nom de l'équipement Palazzetti",
-        "Objet parent": "Objet parent",
-        "Aucun": "Aucun",
-        "Catégorie": "Catégorie",
-        "Activer": "Activer",
-        "Visible": "Visible",
-        "Adresse IP": "Adresse IP",
+        "Objet parent": "obyek orangtua",
+        "Aucun": "tidak",
+        "Catégorie": "kategori",
+        "Activer": "mengaktifkan",
+        "Visible": "terlihat",
+        "Adresse IP": "IP Address",
         "Id": "Id",
-        "Nom": "Nom",
+        "Nom": "nama",
         "Afficher\/Historiser": "Afficher\/Historiser",
-        "Action": "Action",
-        "Supprimer": "Supprimer",
-        "Sauvegarder": "Sauvegarder",
+        "Action": "Tindakan",
+        "Supprimer": "menghapus",
+        "Sauvegarder": "menyimpan",
         "Ajouter un Palazzetti": "Ajouter un Palazzetti",
         "Mes Palazzettis": "Mes Palazzettis"
     },
@@ -38,12 +38,12 @@
         "Extinction du poêle": "Extinction du poêle"
     },
     "plugins\/Palazzetti\/desktop\/js\/Palazzetti.js": {
-        "Afficher": "Afficher",
-        "Historiser": "Historiser",
-        "Tester": "Tester"
+        "Afficher": "Memenitikan",
+        "Historiser": "Historicize",
+        "Tester": "Coba"
     },
     "plugins\/Palazzetti\/plugin_info\/info.xml": {
         "Plugin de Palazzetti": "Plugin de Palazzetti",
-        "Aucune": "Aucune"
+        "Aucune": "tidak"
     }
 }

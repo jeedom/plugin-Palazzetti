@@ -1,27 +1,27 @@
 {
     "plugins\/Palazzetti\/desktop\/php\/Palazzetti.php": {
-        "Ajouter un équipement": "Ajouter un équipement",
-        "Rechercher": "Rechercher",
-        "Général": "Général",
+        "Ajouter un équipement": "Add device",
+        "Rechercher": "Search",
+        "Général": "Main",
         "Nom de l'équipement Palazzetti": "Nom de l'équipement Palazzetti",
-        "Objet parent": "Objet parent",
-        "Aucun": "Aucun",
-        "Catégorie": "Catégorie",
-        "Activer": "Activer",
+        "Objet parent": "Parent object",
+        "Aucun": "None",
+        "Catégorie": "Category",
+        "Activer": "Activate",
         "Visible": "Visible",
-        "Adresse IP": "Adresse IP",
+        "Adresse IP": "IP address",
         "Id": "Id",
-        "Nom": "Nom",
+        "Nom": "Name",
         "Afficher\/Historiser": "Afficher\/Historiser",
         "Action": "Action",
-        "Supprimer": "Supprimer",
-        "Sauvegarder": "Sauvegarder",
+        "Supprimer": "Delete",
+        "Sauvegarder": "Save",
         "Ajouter un Palazzetti": "Ajouter un Palazzetti",
         "Mes Palazzettis": "Mes Palazzettis"
     },
     "plugins\/Palazzetti\/core\/class\/Palazzetti.class.php": {
         "Nom du poêle": "Nom du poêle",
-        "Configuration réseau": "Configuration réseau",
+        "Configuration réseau": "Network setup",
         "Informations automate": "Informations automate",
         "Intensité du feu": "Intensité du feu",
         "Température de consigne": "Température de consigne",
@@ -38,12 +38,12 @@
         "Extinction du poêle": "Extinction du poêle"
     },
     "plugins\/Palazzetti\/desktop\/js\/Palazzetti.js": {
-        "Afficher": "Afficher",
-        "Historiser": "Historiser",
-        "Tester": "Tester"
+        "Afficher": "Display",
+        "Historiser": "Historize",
+        "Tester": "Test"
     },
     "plugins\/Palazzetti\/plugin_info\/info.xml": {
         "Plugin de Palazzetti": "Plugin de Palazzetti",
-        "Aucune": "Aucune"
+        "Aucune": "None"
     }
 }
