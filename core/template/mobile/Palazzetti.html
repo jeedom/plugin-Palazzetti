@@ -24,6 +24,18 @@
 						<a class="ui-btn ui-mini" style="cursor: default;width:50px">#fan#</a>
 		
 					<br />
+					<div style="font-weight:normal;border-bottom:1px solid #ccc;">Ventilation F3L</div>
+						<a class="ui-btn ui-mini fa fa-minus cursor fan-moins pull-left" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini fa fa-plus cursor fan-plus pull-right" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini" style="cursor: default;width:50px">#fanF3L#</a>
+		
+					<br />
+					<div style="font-weight:normal;border-bottom:1px solid #ccc;">Ventilation</div>
+						<a class="ui-btn ui-mini fa fa-minus cursor fan-moins pull-left" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini fa fa-plus cursor fan-plus pull-right" style="background-color:#19bc9c;"></a>
+						<a class="ui-btn ui-mini" style="cursor: default;width:50px">#fanF4L#</a>
+		
+					<br />					
 					<div style="font-weight:normal;border-bottom:1px solid #ccc;">Intensité</div>
 						<a class="ui-btn ui-mini fa fa-minus cursor power-moins pull-left" style="background-color:#19bc9c;"></a>
 						<a class="ui-btn ui-mini fa fa-plus cursor power-plus pull-right" style="background-color:#19bc9c;"></a>
@@ -39,6 +51,8 @@
 		var status 			= '#status#'; 
 		var power 			= #power#;
 		var fan 			= '#fan#';
+		var fanF3L 			= '#fanF3L#';
+		var fanF4L 			= '#fanF4L#';
 		var consigne 		= #consigne#;
 
 		/* on/off */
@@ -83,6 +97,27 @@
 			fan--;
 			jeedom.cmd.execute({id: #fan_id#, value: fan});
 		});	
+		
+		/* ventilation F3L*/
+		$('.eqLogic[data-eqLogic_id=#id#] .fanF3L-plus').on('click', function () {
+				fanF3L = 1; 			
+			jeedom.cmd.execute({id: #fanF3L_id#, value: fanF3L});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .fanF3L-moins').on('click', function () {
+				fanF3L = '0';
+			jeedom.cmd.execute({id: #fanF3L_id#, value: fanF3L});
+		});	
+
+		/* ventilation F4L*/
+		$('.eqLogic[data-eqLogic_id=#id#] .fanF4L-plus').on('click', function () {
+				fanF4L = 1; 			
+			jeedom.cmd.execute({id: #fanF4L_id#, value: fanF4L});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .fanF4L-moins').on('click', function () {
+				fanF4L = 0;
+			jeedom.cmd.execute({id: #fanF4L_id#, value: fanF4L});
+		});	
+		
 		/* force feu */
 		$('.eqLogic[data-eqLogic_id=#id#] .power-plus').on('click', function () {
 			power++;
