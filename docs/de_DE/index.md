@@ -5,7 +5,7 @@ Greenmomit
 
  \
 
-Description 
+Beschreibung 
 -----------
 
 [description.asciidoc](description.asciidoc)
