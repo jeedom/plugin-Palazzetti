@@ -605,7 +605,7 @@ class Palazzetti extends eqLogic {
 
 	// methode requete
 	public function makeRequest($cmd) {
-		$url = 'http://' . $this->getConfiguration('addressip') . '/sendmsg.php?cmd=' . $cmd;
+		$url = 'http://' . $this->getConfiguration('addressip') . '/cgi-bin/sendmsg.lua?cmd=' . $cmd;
 		log::add('Palazzetti', 'debug','('.__LINE__.') ' . __FUNCTION__.' - '. 'get URL '. $url);
 		$request_http = new com_http($url);
 		$return = $request_http->exec(5);
