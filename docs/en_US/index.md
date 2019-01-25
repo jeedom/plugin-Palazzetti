@@ -5,7 +5,7 @@ Greenmomit
 
  \
 
-Description 
+Description
 -----------
 
 [description.asciidoc](description.asciidoc)
@@ -15,7 +15,7 @@ Installation
 
 [installation.asciidoc](installation.asciidoc)
 
-Configuration 
+Configuration
 -------------
 
 [configuration.asciidoc](configuration.asciidoc)
