@@ -6,7 +6,7 @@
 	"author" : "Jeedom Legacy",
 	"require" : "3.0",
 	"version" : "0.4",
-	"category" : "Energie",
+	"category" : "energy",
         "hasOwnDeamon" : false,
         "changelog" : "https://jeedom.github.io/plugin-Palazzetti/#language#/changelog",
         "documentation" : "https://jeedom.github.io/plugin-Palazzetti/#language#/"
