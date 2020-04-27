@@ -1,7 +1,62 @@
 {
-    "plugins\/Palazzetti\/desktop\/php\/Palazzetti.php": {
-        "Ajouter un équipement": "Ajouter un équipement",
+    "plugins\/Palazzetti\/desktop\/modal\/planning.php": {
+        "Jour": "Jour",
+        "Programme 1": "Programme 1",
+        "Programme 2": "Programme 2",
+        "Programme 3": "Programme 3",
+        "Numéro tranche": "Numéro tranche",
+        "Début tranche": "Début tranche",
+        "Fin tranche": "Fin tranche",
+        "Température tranche": "Température tranche"
+    },
+    "plugins\/Palazzetti\/desktop\/modal\/informations.php": {
+        "Nom": "Nom",
+        "Valeur": "Valeur"
+    },
+    "plugins\/Palazzetti\/desktop\/modal\/modal.template.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé"
+    },
+    "plugins\/Palazzetti\/desktop\/modal\/help.Palazzetti.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Aide": "Aide"
+    },
+    "plugins\/Palazzetti\/desktop\/php\/template.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Ajouter un template": "Ajouter un template",
         "Rechercher": "Rechercher",
+        "Mes templates": "Mes templates",
+        "Gestion": "Gestion",
+        "Ajouter": "Ajouter",
+        "Configuration": "Configuration",
+        "Sauvegarder": "Sauvegarder",
+        "Supprimer": "Supprimer",
+        "Configuration avancée": "Configuration avancée",
+        "Equipement": "Equipement",
+        "Commandes": "Commandes",
+        "Nom de l'équipement template": "Nom de l'équipement template",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Catégorie": "Catégorie",
+        "Activer": "Activer",
+        "Visible": "Visible",
+        "template param 1": "template param 1",
+        "Nom": "Nom",
+        "Type": "Type",
+        "Action": "Action"
+    },
+    "plugins\/Palazzetti\/desktop\/php\/Palazzetti.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Ajouter Palazzetti": "Ajouter Palazzetti",
+        "Rechercher": "Rechercher",
+        "Gestion": "Gestion",
+        "Ajouter": "Ajouter",
+        "Configuration": "Configuration",
+        "Mes Palazzettis": "Mes Palazzettis",
+        "Sauvegarder": "Sauvegarder",
+        "Supprimer": "Supprimer",
+        "Configuration avancée": "Configuration avancée",
+        "Equipement": "Equipement",
+        "Commandes": "Commandes",
         "Général": "Général",
         "Nom de l'équipement Palazzetti": "Nom de l'équipement Palazzetti",
         "Objet parent": "Objet parent",
@@ -10,40 +65,64 @@
         "Activer": "Activer",
         "Visible": "Visible",
         "Adresse IP": "Adresse IP",
-        "Id": "Id",
+        "saisir l'adresse IP": "saisir l'adresse IP",
+        "Ajouter une commande": "Ajouter une commande",
         "Nom": "Nom",
-        "Afficher\/Historiser": "Afficher\/Historiser",
-        "Action": "Action",
-        "Supprimer": "Supprimer",
-        "Sauvegarder": "Sauvegarder",
-        "Ajouter un Palazzetti": "Ajouter un Palazzetti",
-        "Mes Palazzettis": "Mes Palazzettis"
-    },
-    "plugins\/Palazzetti\/core\/class\/Palazzetti.class.php": {
-        "Nom du poêle": "Nom du poêle",
-        "Configuration réseau": "Configuration réseau",
-        "Informations automate": "Informations automate",
-        "Intensité du feu": "Intensité du feu",
-        "Température de consigne": "Température de consigne",
-        "Ventilation OFF": "Ventilation OFF",
-        "Ventilation niveau 1": "Ventilation niveau 1",
-        "Ventilation niveau 2": "Ventilation niveau 2",
-        "Ventilation niveau 3": "Ventilation niveau 3",
-        "Ventilation niveau 4": "Ventilation niveau 4",
-        "Ventilation niveau 5": "Ventilation niveau 5",
-        "Lecture planning horaire": "Lecture planning horaire",
-        "Désactivation planning horaire": "Désactivation planning horaire",
-        "Activation planning horaire": "Activation planning horaire",
-        "Allumage du poêle": "Allumage du poêle",
-        "Extinction du poêle": "Extinction du poêle"
+        "Type": "Type",
+        "Parametres": "Parametres",
+        "Action": "Action"
     },
     "plugins\/Palazzetti\/desktop\/js\/Palazzetti.js": {
         "Afficher": "Afficher",
         "Historiser": "Historiser",
+        "Inverser": "Inverser"
+    },
+    "plugins\/Palazzetti\/desktop\/js\/template.js": {
+        "Nom": "Nom",
         "Tester": "Tester"
     },
-    "plugins\/Palazzetti\/plugin_info\/info.xml": {
-        "Plugin de Palazzetti": "Plugin de Palazzetti",
-        "Aucune": "Aucune"
+    "plugins\/Palazzetti\/core\/ajax\/template.ajax.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Aucune méthode correspondante à : ": "Aucune méthode correspondante à : "
+    },
+    "plugins\/Palazzetti\/core\/class\/Palazzetti.class.php": {
+        "Time": "Time",
+        "Lire horodatage": "Lire horodatage",
+        "Informations": "Informations",
+        "Réseau": "Réseau",
+        "Allumage poêle": "Allumage poêle",
+        "Extinction poêle": "Extinction poêle",
+        "Lecture état poêle": "Lecture état poêle",
+        "Etat poêle": "Etat poêle",
+        "Nom": "Nom",
+        "Ecrire nom": "Ecrire nom",
+        "Lire nom": "Lire nom",
+        "Ecrire force du feu": "Ecrire force du feu",
+        "Force du feu": "Force du feu",
+        "Ecrire température de consigne": "Ecrire température de consigne",
+        "Lire température de consigne": "Lire température de consigne",
+        "Température de consigne": "Température de consigne",
+        "Ecriture force ventilateur": "Ecriture force ventilateur",
+        "Lire force ventilateur": "Lire force ventilateur",
+        "Force ventilateur": "Force ventilateur",
+        "Lire température ambiance": "Lire température ambiance",
+        "Température ambiance": "Température ambiance",
+        "On\/Off Programmes horaires": "On\/Off Programmes horaires",
+        "Lecture programmes horaires": "Lecture programmes horaires",
+        "Programmes horaires": "Programmes horaires",
+        "Affectation programme horaire": "Affectation programme horaire",
+        "Configuration tranche horaire": "Configuration tranche horaire",
+        "Lecture nombre d\\'allumages": "Lecture nombre d\\'allumages",
+        "Nombre d\\'allumages": "Nombre d\\'allumages",
+        "Lecture nombre d\\'allumages échoués": "Lecture nombre d\\'allumages échoués",
+        "Nombre d\\'allumages échoués": "Nombre d\\'allumages échoués",
+        "Lecture heures alimentation électrique": "Lecture heures alimentation électrique",
+        "Nombre d\\'heures alimentation électrique": "Nombre d\\'heures alimentation électrique",
+        "Lecture heures de chauffe": "Lecture heures de chauffe",
+        "Nombre d\\'heures de chauffe": "Nombre d\\'heures de chauffe",
+        "Lecture heures de surchauffe": "Lecture heures de surchauffe",
+        "Nombre d\\'heures de surchauffe": "Nombre d\\'heures de surchauffe",
+        "Lecture heures depuis entretien": "Lecture heures depuis entretien",
+        "Nombre d\\'heures depuis entretien": "Nombre d\\'heures depuis entretien"
     }
 }

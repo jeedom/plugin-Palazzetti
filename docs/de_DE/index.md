@@ -1,9 +1,9 @@
-Greenmomit 
+ 
 ==========
 
 ![Palazzetti icon](../images/Palazzetti_icon.png)
 
- \
+
 
 Beschreibung 
 -----------
@@ -15,17 +15,17 @@ Installation
 
 [installation.asciidoc](installation.asciidoc)
 
-Konfiguration
+Konfiguration 
 -------------
 
 [configuration.asciidoc](configuration.asciidoc)
 
-FAQ 
+Faq 
 ---
 
 [faq.asciidoc](faq.asciidoc)
 
-CHANGELOG 
+Änderungsprotokoll 
 ---------
 
 [changelog.asciidoc](changelog.asciidoc)

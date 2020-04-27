@@ -5,27 +5,27 @@
 
 
 
-Descripción 
+Descrição 
 -----------
 
 [description.asciidoc](description.asciidoc)
 
-Instalación 
+Instalação 
 ------------
 
 [installation.asciidoc](installation.asciidoc)
 
-Configuración 
+Configuração 
 -------------
 
 [configuration.asciidoc](configuration.asciidoc)
 
-Preguntas frecuentes 
+ 
 ---
 
 [faq.asciidoc](faq.asciidoc)
 
-Cambios 
+ 
 ---------
 
 [changelog.asciidoc](changelog.asciidoc)
