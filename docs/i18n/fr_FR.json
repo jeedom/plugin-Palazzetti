@@ -4,9 +4,14 @@
         "Greenmomit": "Greenmomit",
         " \\": " \\",
         "Description": "Description",
+        "description.asciidoc": "description.asciidoc",
         "Installation": "Installation",
+        "installation.asciidoc": "installation.asciidoc",
         "Configuration": "Configuration",
+        "configuration.asciidoc": "configuration.asciidoc",
         "FAQ": "FAQ",
-        "CHANGELOG": "CHANGELOG"
+        "faq.asciidoc": "faq.asciidoc",
+        "CHANGELOG": "CHANGELOG",
+        "changelog.asciidoc": "changelog.asciidoc"
     }
 }
