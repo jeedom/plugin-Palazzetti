@@ -83,7 +83,7 @@
     },
     "plugins\/Palazzetti\/core\/ajax\/template.ajax.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Aucune méthode correspondante à : ": "Aucune methode correspondante à : "
+        "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
     "plugins\/Palazzetti\/core\/class\/Palazzetti.class.php": {
         "Time": "Tempo",
