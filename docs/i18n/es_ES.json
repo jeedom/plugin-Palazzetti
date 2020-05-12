@@ -1,5 +1,7 @@
 {
-    "changelog.md": null,
+    "changelog.md": {
+        "Changelog Palazzetti": "Registro de cambios palazzetti"
+    },
     "index.md": {
         " \\": "\\",
         "description.asciidoc": "descripción.asciidoc",
