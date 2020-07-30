@@ -9,5 +9,7 @@
 	"category" : "Energie",
         "hasOwnDeamon" : false,
         "changelog" : "https://jeedom.github.io/plugin-Palazzetti/#language#/changelog",
-        "documentation" : "https://jeedom.github.io/plugin-Palazzetti/#language#/"
+        "documentation" : "https://jeedom.github.io/plugin-Palazzetti/#language#/",
+	"language" : ["fr_FR","en_US","de_DE","sp_SP"],
+"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"]
 }
