@@ -20,7 +20,7 @@ class Palazzetti extends eqLogic {
 
 			// mise à jour horloge 
 			$date = date("Y-m-d H:i:s");
-			$DATA = $Palazzetti->makeRequest($cmdString) ;
+			//$DATA = $Palazzetti->makeRequest($cmdString) ;
 		}
 	}
 
@@ -39,7 +39,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('ITime');
 			$PalazzettiCmd->setType('info');
 			$PalazzettiCmd->setSubType('string');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		// lecture nom du poêle
@@ -113,7 +113,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('WOff');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(0);
+			$PalazzettiCmd->setIsVisible(1);
 			$PalazzettiCmd->save();	
 
 		// lecture status poêle
@@ -128,7 +128,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('RStatus');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(0);
+			$PalazzettiCmd->setIsVisible(1);
 			$PalazzettiCmd->save();	
 
 		// informations poêle
@@ -200,7 +200,11 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setEqLogic_id($this->getId());
 			$PalazzettiCmd->setLogicalId('WPower');
 			$PalazzettiCmd->setType('action');
-			$PalazzettiCmd->setSubType('other');
+            $PalazzettiCmd->setSubType('slider');
+            $PalazzettiCmd->setConfiguration('nparams', 1);
+            $PalazzettiCmd->setConfiguration('parameters', '#slider#');
+            $PalazzettiCmd->setConfiguration('minValue', '1');
+            $PalazzettiCmd->setConfiguration('maxValue', '5');
 			$PalazzettiCmd->setIsVisible(1);
 			$PalazzettiCmd->save();
 
@@ -229,7 +233,11 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setEqLogic_id($this->getId());
 			$PalazzettiCmd->setLogicalId('WConsigne');
 			$PalazzettiCmd->setType('action');
-			$PalazzettiCmd->setSubType('other');
+            $PalazzettiCmd->setSubType('slider');
+            $PalazzettiCmd->setConfiguration('nparams', 1);
+            $PalazzettiCmd->setConfiguration('parameters', '#slider#');
+            $PalazzettiCmd->setConfiguration('minValue', '0');
+            $PalazzettiCmd->setConfiguration('maxValue', '40');
 			$PalazzettiCmd->setIsVisible(1);
 			$PalazzettiCmd->save();
 
@@ -263,6 +271,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->save();
 
 		// ********* VENTILATEUR
+		//RFAN
 		// ecriture force ventilateur
 		$PalazzettiCmd = $this->getCmd(null, 'WFan');
 		if (!is_object($PalazzettiCmd)) {
@@ -274,7 +283,11 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setEqLogic_id($this->getId());
 			$PalazzettiCmd->setLogicalId('WFan');
 			$PalazzettiCmd->setType('action');
-			$PalazzettiCmd->setSubType('other');
+            $PalazzettiCmd->setSubType('slider');
+            $PalazzettiCmd->setConfiguration('nparams', 1);
+            $PalazzettiCmd->setConfiguration('parameters', '#slider#');
+            $PalazzettiCmd->setConfiguration('minValue', '0');
+            $PalazzettiCmd->setConfiguration('maxValue', '5');
 			$PalazzettiCmd->setIsVisible(1);
 			$PalazzettiCmd->save();
 
@@ -305,7 +318,104 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setSubType('string');
 			$PalazzettiCmd->setIsVisible(1);
 			$PalazzettiCmd->save();
+			
+		//F3L
+		// ecriture force ventilateur
+		$PalazzettiCmd = $this->getCmd(null, 'WFanF3L');
+		if (!is_object($PalazzettiCmd)) {
+			$PalazzettiCmd = new PalazzettiCmd();
+		}
+			$PalazzettiCmd->setName(__('Ecriture force ventilateur F3L', __FILE__));
+			$PalazzettiCmd->setConfiguration('actionCmd','SET+FN3L+');
+			$PalazzettiCmd->setConfiguration('updateLogicalId','IFanF3L');
+			$PalazzettiCmd->setEqLogic_id($this->getId());
+			$PalazzettiCmd->setLogicalId('WFanF3L');
+			$PalazzettiCmd->setType('action');
+            $PalazzettiCmd->setSubType('slider');
+            $PalazzettiCmd->setConfiguration('nparams', 1);
+            $PalazzettiCmd->setConfiguration('parameters', '#slider#');
+            $PalazzettiCmd->setConfiguration('minValue', '0');
+            $PalazzettiCmd->setConfiguration('maxValue', '1');
+			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->save();
 
+		// lecture force ventilateur
+		$PalazzettiCmd = $this->getCmd(null, 'RFanF3L');
+		if (!is_object($PalazzettiCmd)) {
+			$PalazzettiCmd = new PalazzettiCmd();
+		}
+			$PalazzettiCmd->setName(__('Lire force ventilateur F3L', __FILE__));
+			$PalazzettiCmd->setConfiguration('actionCmd','GET+ALLS');
+			$PalazzettiCmd->setConfiguration('updateLogicalId','IFanF3L');
+			$PalazzettiCmd->setEqLogic_id($this->getId());
+			$PalazzettiCmd->setLogicalId('RFanF3L');
+			$PalazzettiCmd->setType('action');
+			$PalazzettiCmd->setSubType('other');
+			$PalazzettiCmd->setIsVisible(0);
+			$PalazzettiCmd->save();	
+
+		// informations force ventilateur
+		$PalazzettiCmd = $this->getCmd(null, 'FanF3L');
+		if (!is_object($PalazzettiCmd)) {
+			$PalazzettiCmd = new PalazzettiCmd();
+		}
+			$PalazzettiCmd->setName(__('Force ventilateur F3L', __FILE__));
+			$PalazzettiCmd->setEqLogic_id($this->getId());
+			$PalazzettiCmd->setLogicalId('IFanF3L');
+			$PalazzettiCmd->setType('info');
+			$PalazzettiCmd->setSubType('string');
+			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->save();
+
+		//F4L
+		// ecriture force ventilateur
+		$PalazzettiCmd = $this->getCmd(null, 'WFanF4L');
+		if (!is_object($PalazzettiCmd)) {
+			$PalazzettiCmd = new PalazzettiCmd();
+		}
+			$PalazzettiCmd->setName(__('Ecriture force ventilateur F4L', __FILE__));
+			$PalazzettiCmd->setConfiguration('actionCmd','SET+FN4L+');
+			$PalazzettiCmd->setConfiguration('updateLogicalId','IFanF4L');
+			$PalazzettiCmd->setEqLogic_id($this->getId());
+			$PalazzettiCmd->setLogicalId('WFanF4L');
+			$PalazzettiCmd->setType('action');
+            $PalazzettiCmd->setSubType('slider');
+            $PalazzettiCmd->setConfiguration('nparams', 1);
+            $PalazzettiCmd->setConfiguration('parameters', '#slider#');
+            $PalazzettiCmd->setConfiguration('minValue', '0');
+            $PalazzettiCmd->setConfiguration('maxValue', '1');
+			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->save();
+
+		// lecture force ventilateur
+		$PalazzettiCmd = $this->getCmd(null, 'RFanF4L');
+		if (!is_object($PalazzettiCmd)) {
+			$PalazzettiCmd = new PalazzettiCmd();
+		}
+			$PalazzettiCmd->setName(__('Lire force ventilateur F4L', __FILE__));
+			$PalazzettiCmd->setConfiguration('actionCmd','GET+ALLS');
+			$PalazzettiCmd->setConfiguration('updateLogicalId','IFanF4L');
+			$PalazzettiCmd->setEqLogic_id($this->getId());
+			$PalazzettiCmd->setLogicalId('RFanF4L');
+			$PalazzettiCmd->setType('action');
+			$PalazzettiCmd->setSubType('other');
+			$PalazzettiCmd->setIsVisible(0);
+			$PalazzettiCmd->save();	
+
+		// informations force ventilateur
+		$PalazzettiCmd = $this->getCmd(null, 'FanF4L');
+		if (!is_object($PalazzettiCmd)) {
+			$PalazzettiCmd = new PalazzettiCmd();
+		}
+			$PalazzettiCmd->setName(__('Force ventilateur F4L', __FILE__));
+			$PalazzettiCmd->setEqLogic_id($this->getId());
+			$PalazzettiCmd->setLogicalId('IFanF4L');
+			$PalazzettiCmd->setType('info');
+			$PalazzettiCmd->setSubType('string');
+			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->save();
+			
+			
 		// ********* TEMPERATURES
 		// lecture températures
 		$PalazzettiCmd = $this->getCmd(null, 'RTemp');
@@ -405,7 +515,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('WPHtranche');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		// Information utilisation
@@ -420,7 +530,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('RNbAllumage');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		$PalazzettiCmd = $this->getCmd(null, 'INbAllumage');
@@ -432,7 +542,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('INbAllumage');
 			$PalazzettiCmd->setType('info');
 			$PalazzettiCmd->setSubType('string');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		// Information utilisation
@@ -447,7 +557,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('RNbAllumageFailed');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		$PalazzettiCmd = $this->getCmd(null, 'INbAllumageFailed');
@@ -459,7 +569,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('INbAllumageFailed');
 			$PalazzettiCmd->setType('info');
 			$PalazzettiCmd->setSubType('string');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		// Information utilisation
@@ -474,7 +584,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('RHeuresAlimElec');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		$PalazzettiCmd = $this->getCmd(null, 'IHeuresAlimElec');
@@ -486,7 +596,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('IHeuresAlimElec');
 			$PalazzettiCmd->setType('info');
 			$PalazzettiCmd->setSubType('string');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		// information
@@ -504,7 +614,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('RHeuresChauffe');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		$PalazzettiCmd = $this->getCmd(null, 'IHeuresChauffe');
@@ -516,7 +626,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('IHeuresChauffe');
 			$PalazzettiCmd->setType('info');
 			$PalazzettiCmd->setSubType('string');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		// information
@@ -534,7 +644,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('RHeuresSurChauffe');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		$PalazzettiCmd = $this->getCmd(null, 'IHeuresSurChauffe');
@@ -546,7 +656,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('IHeuresSurChauffe');
 			$PalazzettiCmd->setType('info');
 			$PalazzettiCmd->setSubType('string');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		// Information utilisation
@@ -561,7 +671,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('RHeuresDepuisEntretien');
 			$PalazzettiCmd->setType('action');
 			$PalazzettiCmd->setSubType('other');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		$PalazzettiCmd = $this->getCmd(null, 'IHeuresDepuisEntretien');
@@ -573,7 +683,7 @@ class Palazzetti extends eqLogic {
 			$PalazzettiCmd->setLogicalId('IHeuresDepuisEntretien');
 			$PalazzettiCmd->setType('info');
 			$PalazzettiCmd->setSubType('string');
-			$PalazzettiCmd->setIsVisible(1);
+			$PalazzettiCmd->setIsVisible(0);
 			$PalazzettiCmd->save();
 
 		// parametres
@@ -605,13 +715,14 @@ class Palazzetti extends eqLogic {
 
 	// methode requete
 	public function makeRequest($cmd) {
-		$url = 'http://' . $this->getConfiguration('addressip') . '/sendmsg.php?cmd=' . $cmd;
+		$url = 'http://' . $this->getConfiguration('addressip') . '/cgi-bin/sendmsg.lua?cmd=' . $cmd;
 		log::add('Palazzetti', 'debug','('.__LINE__.') ' . __FUNCTION__.' - '. 'get URL '. $url);
-		$request_http = new com_http($url);
-		$return = $request_http->exec(5);
+        
+        $request_http = new com_http($url);
+		$return = $request_http->exec(10);
 		$return = json_decode($return);
-		if($return->Info->RSP != 'OK') {
-			log::add('Palazzetti', 'error','('.__LINE__.') ' . __FUNCTION__.' - '. ' réponse erreur ' . $cmd);
+		if($return->INFO->RSP != 'OK') {
+			log::add('Palazzetti', 'error','('.__LINE__.') ' . __FUNCTION__.' - '. ' erreur makeRequest' . $cmd);
 			return false;
 		} else {
 			return $return;
@@ -633,7 +744,31 @@ class Palazzetti extends eqLogic {
 		}
 		return $value;
 	}
-
+	
+	public function getFanStateF3L($num) {
+		switch($num) {
+			case 0:
+				$value = 'OFF';
+				break;
+			case 1:
+				$value = 'ON';
+				break;
+		}
+		return $value;
+	}
+	
+	public function getFanStateF4L($num) {
+		switch($num) {
+			case 0:
+				$value = 'OFF';
+				break;
+			case 1:
+				$value = 'ON';
+				break;
+		}
+		return $value;
+	}	
+	
 	// interpretation valeur status poele
 	public function getStoveState($num) {
 		$lib[0] = 'OFF';
@@ -693,6 +828,9 @@ class Palazzetti extends eqLogic {
 					} else if(isset($_options['numero']) && isset($_options['temperature']) && isset($_options['h1']) && isset($_options['m1']) && isset($_options['h2']) && isset($_options['m2'])) {
 						$cmdString = $cmdString . $_options['numero'] . '+' . $_options['temperature'] . '+' . $_options['h1']. '+' . $_options['m1']. '+' . $_options['h2']. '+' . $_options['m2'];
 					}
+                    else if(isset($_options['slider'])) {
+						$cmdString = $cmdString . $_options['slider'];
+					}
 				} else {
 						$cmdString = $cmdString . $_options;					
 				}
@@ -700,10 +838,11 @@ class Palazzetti extends eqLogic {
 				log::add('Palazzetti', 'debug','('.__LINE__.') ' . __FUNCTION__.' - '. ' commande ' . json_encode($_options));
 			}
 			$DATA = $this->makeRequest($cmdString) ;
+                
 			if($DATA == false) { return 'ERROR'; }
 			// verification succes du traitement
-			if($DATA->Info->RSP != 'OK') {
-				log::add('Palazzetti', 'error','('.__LINE__.') ' . __FUNCTION__.' - '. ' réponse erreur ' . $DATA->Info->RSP);
+			if($DATA->INFO->RSP != 'OK') {
+				log::add('Palazzetti', 'error','('.__LINE__.') ' . __FUNCTION__.' - '. ' erreur ' .$CMD. ' : '. $DATA->INFO->RSP);
 				return false;
 			} 
 			// definition patern de comparaison
@@ -716,36 +855,44 @@ class Palazzetti extends eqLogic {
 				case 'CMD+ON': 
 				case 'CMD+OFF': 
 				case 'GET+STAT': 
-					$value = $this->getStoveState($DATA->Status->STATUS);
+					$value = $this->getStoveState($DATA->DATA->STATUS);
 				break;
 				// nom poele
 				case 'GET+LABL': 
 				case 'SET+LABL':
-					$value = $DATA->StoveData->LABEL;
+					$value = $DATA->DATA->LABEL;
 				break;
 				// force du feu
 				case 'SET+POWR':
-					$value = $DATA->Power->POWER;
+					$value = $DATA->POWER->POWER;
 				break;
 				// température de consigne
 				case 'GET+SETP': 
 				case 'SET+SETP':
-					$value = $DATA->Setpoint->SETP;
+					$value = $DATA->DATA->SETP;
 				break;
 				// force du ventilateur
 				case 'GET+FAND': 
-					$value = $this->getFanState($DATA->Fans->FAN_FAN2LEVEL);
+					$value = $this->getFanState($DATA->DATA->F2L);
 				break;
 				case 'SET+RFAN':
-					$value = $this->getFanState($DATA->RoomFan->FAN_FAN2LEVEL);
+					$value = $this->getFanState($DATA->DATA->F2L);
+				break;
+				// force ventilateur F3L
+				case 'SET+FN3L':
+					$value = $this->getFanState($DATA->DATA->F3L);
+				break;
+				// force ventilateur F4L
+				case 'SET+FN4L':
+					$value = $this->getFanState($DATA->DATA->F4L);
 				break;
 				// température ambiance
 				case 'GET+TMPS': 
-					$value = $DATA->Temperatures->TMP_ROOM_WATER;
+					$value = $DATA->DATA->T5;
 				break;
 				// programmes horaires
 				case 'GET+CHRD': 
-					$value = json_encode($DATA->{'Chrono Info'});
+					$value = json_encode($DATA->DATA);
 				break;
 				// programmes horaires
 				case 'SET+CSST': 
@@ -756,10 +903,11 @@ class Palazzetti extends eqLogic {
 				break;
 				// informations automate
 				case 'EXT+ADRD':
-					$value = $DATA->Data->{'ADDR_'+ $expl[2]};
-					log::add('Palazzetti', 'debug','('.__LINE__.') ' . __FUNCTION__.' - '. 'response '. $value);
+                    $value = $DATA->DATA->{'ADDR_' . $expl[2]};
+					log::add('Palazzetti', 'debug','('.__LINE__.') ' . __FUNCTION__.' - '. 'reponse '. $value);
 				break;
 			}
+        
 			// mise a jour variables info
 			if($CMD->getConfiguration('updateLogicalId')) {
 				$INFO = $this->getCmd(null, $CMD->getConfiguration('updateLogicalId'));
@@ -799,6 +947,16 @@ class Palazzetti extends eqLogic {
 		$replace ['#fan#'] = $this->getFanState($fan->execCmd());
 		$Wfan = $this->getCmd(null,'WFan');
 	    $replace['#fan_id#'] = is_object($Wfan) ? $Wfan->getId() : '';
+		
+		$fanF3L = $this->getCmd(null,'IFanF3L');
+		$replace ['#fanF3L#'] = $this->getFanStateF3L($fanF3L->execCmd());
+		$WfanF3L = $this->getCmd(null,'WFanF3L');
+	    $replace['#fanF3L_id#'] = is_object($WfanF3L) ? $WfanF3L->getId() : '';
+
+		$fanF4L = $this->getCmd(null,'IFanF4L');
+		$replace ['#fanF4L#'] = $this->getFanStateF4L($fanF4L->execCmd());
+		$WfanF4L = $this->getCmd(null,'WFanF4L');
+	    $replace['#fanF4L_id#'] = is_object($WfanF4L) ? $WfanF4L->getId() : '';		
 
 		$power = $this->getCmd(null,'IPower');
 		$replace ['#power#'] = $power->execCmd();
@@ -822,7 +980,7 @@ class Palazzetti extends eqLogic {
 		if($DATA == false) { return; }
 		// mise à jour nom du poêle
 		$TIME = $this->getCmd(null, 'ITime');
-		$TIME->event(json_encode($DATA->{'DateTime'}));
+		$TIME->event(json_encode($DATA));
 		$TIME->save();
 
     	// recuperation de toutes les informations réseau
@@ -830,7 +988,7 @@ class Palazzetti extends eqLogic {
 		if($DATA == false) { return; }
 		// mise à jour nom du poêle
 		$LABL = $this->getCmd(null, 'IName');
-		$LABL->event($DATA->StoveData->LABEL);
+		$LABL->event($DATA->STOVEDATA->LABEL);
 		$LABL->save();
 		// mise à jour force du feu
 		$POWR = $this->getCmd(null, 'INetwork');
@@ -842,44 +1000,44 @@ class Palazzetti extends eqLogic {
 		if($DATA == false) { return; }
 		// mise à jour programmes horaires
 		$PH = $this->getCmd(null, 'IPH');
-		$PH->event(json_encode($DATA->{'Chrono Info'}));
+		$PH->event(json_encode($DATA->DATA));
 		$PH->save();
 
     	// recuperation des infos autoamte
     	$DATA = $this->makeRequest('EXT+ADRD+2066+1');
 		if($DATA == false) { return; }
 		$EXT = $this->getCmd(null, 'INbAllumage');
-		$EXT->event($DATA->Data->ADDR_2066);
+		$EXT->event($DATA->DATA->ADDR_2066);
 		$EXT->save();
 
     	$DATA = $this->makeRequest('EXT+ADRD+207C+1');
 		if($DATA == false) { return; }
 		$EXT = $this->getCmd(null, 'INbAllumageFailed');
-		$EXT->event($DATA->Data->ADDR_207C);
+		$EXT->event($DATA->DATA->ADDR_207C);
 		$EXT->save();
 
     	$DATA = $this->makeRequest('EXT+ADRD+206A+1');
 		if($DATA == false) { return; }
 		$EXT = $this->getCmd(null, 'IHeuresAlimElec');
-		$EXT->event($DATA->Data->ADDR_206A);
+		$EXT->event($DATA->DATA->ADDR_206A);
 		$EXT->save();
 
     	$DATA = $this->makeRequest('EXT+ADRD+2070+1');
 		if($DATA == false) { return; }
 		$EXT = $this->getCmd(null, 'IHeuresChauffe');
-		$EXT->event($DATA->Data->ADDR_2070);
+		$EXT->event($DATA->DATA->ADDR_2070);
 		$EXT->save();
 
     	$DATA = $this->makeRequest('EXT+ADRD+207A+1');
 		if($DATA == false) { return; }
 		$EXT = $this->getCmd(null, 'IHeuresSurChauffe');
-		$EXT->event($DATA->Data->ADDR_207A);
+		$EXT->event($DATA->DATA->ADDR_207A);
 		$EXT->save();
 
     	$DATA = $this->makeRequest('EXT+ADRD+2076+1');
 		if($DATA == false) { return; }
 		$EXT = $this->getCmd(null, 'IHeuresDepuisEntretien');
-		$EXT->event($DATA->Data->ADDR_2076);
+		$EXT->event($DATA->DATA->ADDR_2076);
 		$EXT->save();
 
     	// recuperation de toutes les informations
@@ -887,29 +1045,38 @@ class Palazzetti extends eqLogic {
 		if($DATA == false) { return; }
 		// mise à jour force du feu
 		$POWR = $this->getCmd(null, 'IPower');
-		$POWR->event($DATA->{'All Data'}->POWER);
+		$POWR->event($DATA->DATA->PWR);
 		$POWR->save();
 		// mise à jour température de consigne
 		$TCON = $this->getCmd(null, 'IConsigne');
-		$TCON->event($DATA->{'All Data'}->SETP);
+		$TCON->event($DATA->DATA->SETP);
 		$TCON->save();
 		// mise à jour force du ventilateur
 		$FAN = $this->getCmd(null, 'IFan');
-		$FAN->event($DATA->{'All Data'}->FAN_FAN2LEVEL);
+		$FAN->event($DATA->DATA->F2L);
 		$FAN->save();
-		// mise à jour force du ventilateur
+		// mise à jour force du ventilateur 3 F3L
+		$FANF3L = $this->getCmd(null, 'IFanF3L');
+		$FANF3L->event($DATA->DATA->F3L);
+		$FANF3L->save();
+		// mise à jour force du ventilateur 4 F4L
+		$FANF4L = $this->getCmd(null, 'IFanF4L');
+		$FANF4L->event($DATA->DATA->F4L);
+		$FANF4L->save();
+		// mise à jour temperature ambiance
 		$TMP = $this->getCmd(null, 'ITemp');
-		$TMP->event($DATA->{'All Data'}->TMP_ROOM_WATER);
+		$TMP->event($DATA->DATA->T5);
 		$TMP->save();
 		// mise à jour status poele
 		$STA = $this->getCmd(null, 'IStatus');
-		$STA->event($DATA->{'All Data'}->STATUS);
+		$STA->event($DATA->DATA->STATUS);
 		$STA->save();
 
 		// mise a jour variables snap
 		$SNAP = $this->getCmd(null, 'ISnap');
-		$SNAP->event(json_encode($DATA->{'All Data'}));
+		$SNAP->event(json_encode($DATA));
 		$SNAP->save();
+		
 
 	}
 

@@ -36,7 +36,27 @@
 						<div type="button" class="btn fa fa-minus pull-right cursor fan-moins"></div>
 						<div type="button" class="btn pull-right" style="padding-top:4px;cursor: default;">#fan#</div>
 					</div>
-					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Ventilation : </div>
+					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Ventilation Façade : </div>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-sm-12" style="text-align:left;">
+					<div class="btn-group pull-right" role="group">
+						<div type="button" class="btn fa fa-plus pull-right cursor fanF3L-plus"></div>
+						<div type="button" class="btn fa fa-minus pull-right cursor fanF3L-moins"></div>
+						<div type="button" class="btn pull-right" style="padding-top:4px;cursor: default;">#fanF3L#</div>
+					</div>
+					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Ventilation F3L: </div>
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-sm-12" style="text-align:left;">
+					<div class="btn-group pull-right" role="group">
+						<div type="button" class="btn fa fa-plus pull-right cursor fanF4L-plus"></div>
+						<div type="button" class="btn fa fa-minus pull-right cursor fanF4L-moins"></div>
+						<div type="button" class="btn pull-right" style="padding-top:4px;cursor: default;">#fanF4L#</div>
+					</div>
+					<div type="button" class="btn pull-left" style="padding-top:6px;font-weight:normal;cursor: default;">Ventilation F4L: </div>
 				</div>				
 			</div>
 			<div class="row">
@@ -56,6 +76,8 @@
 		var status 			= '#status#'; 
 		var power 			= #power#;
 		var fan 			= '#fan#';
+		var fanF3L 			= '#fanF3L#';
+		var fanF4L 			= '#fanF4L#';
 		var consigne 		= #consigne#;
 
 		/* on/off */
@@ -100,6 +122,26 @@
 			fan--;
 			jeedom.cmd.execute({id: #fan_id#, value: fan});
 		});	
+		/* ventilation F3L*/
+		$('.eqLogic[data-eqLogic_id=#id#] .fanF3L-plus').on('click', function () {
+				fanF3L = 1; 			
+			jeedom.cmd.execute({id: #fanF3L_id#, value: fanF3L});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .fanF3L-moins').on('click', function () {
+				fanF3L = '0'; 			
+			jeedom.cmd.execute({id: #fanF3L_id#, value: fanF3L});
+		});	
+
+		/* ventilation F4L*/
+		$('.eqLogic[data-eqLogic_id=#id#] .fanF4L-plus').on('click', function () {
+				fanF4L = 1; 			
+			jeedom.cmd.execute({id: #fanF4L_id#, value: fanF4L});
+		});	
+		$('.eqLogic[data-eqLogic_id=#id#] .fanF4L-moins').on('click', function () {
+				fanF4L = '0';
+			jeedom.cmd.execute({id: #fanF4L_id#, value: fanF4L});
+		});	
+		
 		/* force feu */
 		$('.eqLogic[data-eqLogic_id=#id#] .power-plus').on('click', function () {
 			power++;
